@@ -65,41 +65,6 @@ export default function App() {
     if (e.key === 'Enter') npmSearch();
   }  
 
-  // async function fetchPackageInfo() {
-  //   try {
-  //     setError(null);
-  //     setData(null);
-
-  //     // NPM Registry API
-  //     const res = await fetch(`https://registry.npmjs.org/${pkg}`);
-  //     if (!res.ok) throw new Error("Package not found");
-  //     const json = await res.json();
-
-  //     const latestVersion = json["dist-tags"].latest;
-  //     const latest = json.versions[latestVersion];
-
-  //     // Downloads API
-  //     const downloadsRes = await fetch(
-  //       `https://api.npmjs.org/downloads/point/last-week/${pkg}`
-  //     );
-  //     const downloadsJson = await downloadsRes.json();
-
-  //     const scorecard = {
-  //       name: pkg,
-  //       version: latestVersion,
-  //       license: latest.license || "Unknown",
-  //       dependencies: latest.dependencies ? Object.keys(latest.dependencies).length : 0,
-  //       unpackedSize: latest.dist?.unpackedSize || "N/A",
-  //       lastPublish: json.time?.modified,
-  //       weeklyDownloads: downloadsJson.downloads || 0
-  //     };
-
-  //     setData(scorecard);
-  //   } catch (err) {
-  //     setError(err.message);
-  //   }
-  // }
-
   return (
     <div className="p-6 max-w-lg mx-auto font-sans">
       <h1 className="text-2xl font-bold mb-4">NPM Package Inspector</h1>
