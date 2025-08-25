@@ -18,3 +18,7 @@ Package scorecards that includes
 3. Build and start the container by entering `docker compose up --build`
 
 4. Open up a web browser of your choice, and enter `http://localhost:8080/` 
+
+## Key Design Choices
+I choose to use React + Vite for simplicity, fast builds, and reliability. Vite is a JS bundler, which could be run on most browser by transforming the React JSX code into raw HTML, CSS, and JavaScript files. 
+I choose to use NGINX for speed, efficiency, and flexibility. While NGINX doest support directory level configurations, it helps increases the site performances. Especially since we only have singular web page.
