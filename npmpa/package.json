@@ -3,16 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/Chris-Saputr/NPM-Package-Analyzer",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "test": "vitest --run",
-    "prepare": "husky",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "prepare": "husky"
+
   },
   "dependencies": {
     "react": "^19.1.1",
