@@ -11,9 +11,10 @@ Package scorecards that includes
 - Date of Last Published
 
 ## How to run (With Docker Installed)
-1. Clone the repository by entering ```git clone https://github.com/Chris-Saputr/NPM-Package-Analyzer.git``` on Powershell/Command Prompt/Git Bash
+1. Open Powershell/Command Prompt/Git Bash and Clone the repository by entering `git clone https://github.com/Chris-Saputr/NPM-Package-Analyzer.git`
 
-2. Go into the directory where NPM-Package-Analyzer is located by entering ```cd NPM-Package-Analyzer on the terminal```
+2. Go into the directory where NPM-Package-Analyzer is located by entering `cd NPM-Package-Analyzer on the terminal`
 
-3. Build and start the container by entering ```docker compose up --build```
+3. Build and start the container by entering `docker compose up --build`
 
+4. Open up a web browser of your choice, and enter `http://localhost:8080/` 

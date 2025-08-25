@@ -67,7 +67,7 @@ export default function App() {
 
   return (
     <div className="p-6 max-w-lg mx-auto font-sans">
-      <h1 className="text-2xl font-bold mb-4">NPM Package Inspector</h1>
+      <h1 className="text-2xl font-bold mb-4">NPM Package Dependency Inspector</h1>
       <div className="flex gap-2 mb-4">
         <input
           className="border p-2 flex-1"
@@ -75,7 +75,7 @@ export default function App() {
           value={pkg}
           onChange={(e) => setPkg(e.target.value)}
           onKeyDown={EnterPressed}
-          style={{ flex: 1, padding: "10px 12px", border: "1px solid #ccc", borderRadius: 8 }}
+          style={{ flex: 1, padding: "10px 12px", border: "1px solid #ccc", borderRadius: 8, marginRight: 10 }}
         />
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded"
