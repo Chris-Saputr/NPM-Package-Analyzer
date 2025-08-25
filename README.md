@@ -1,5 +1,7 @@
-# NPM Package Dependency Analyze
-This project is a single web application that analyzes a public NPM package and generates a dependency report card, helping developers make informed decisions about the library they use. The application fetches the metadata directly from https:∕∕registry.npmjs.org∕ and displays brief descriptions of versions, last updated, size of the file and so on.
+# NPM Package Dependency Analyzer
+
+## Project Abstract
+NPM Package Dependency Analyzer is a single web application that analyzes a public NPM package and generates a dependency report card, helping developers make informed decisions about the library they use. The application fetches the metadata directly from https:∕∕registry.npmjs.org∕ and displays brief descriptions of versions, last updated, size of the file and so on.
 
 ## Features
 Package scorecards that includes
@@ -20,5 +22,6 @@ Package scorecards that includes
 4. Open up a web browser of your choice, and enter `http://localhost:8080/` 
 
 ## Key Design Choices
-I choose to use React + Vite for simplicity, fast builds, and reliability. Vite is a JS bundler, which could be run on most browser by transforming the React JSX code into raw HTML, CSS, and JavaScript files. 
-I choose to use NGINX for speed, efficiency, and flexibility. While NGINX doest support directory level configurations, it helps increases the site performances. Especially since we only have singular web page.
+This application utilizes React + Vite for simplicity, fast builds, and reliability. Vite is a JS bundler, which could be run on most browser by transforming the React JSX code into raw HTML, CSS, and JavaScript files. 
+
+This app also utilizes NGINX for speed, efficiency, and flexibility. While NGINX doest support directory level configurations, it helps increases the site performances. Especially since we only have singular web page.
