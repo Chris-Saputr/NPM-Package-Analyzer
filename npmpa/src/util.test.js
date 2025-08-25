@@ -6,9 +6,9 @@ describe('util', () => {
         expect(dependencyCount({ a: "1.0.0", b: "2.0.0" })).toBe(2);
         expect(dependencyCount(null)).toBe(0);
     });
-    // it('returns 0 for empty object', () => {
-    //     expect(dependencyCount({})).toBe(0);
-    // });
+    it('returns 0 for empty object', () => {
+        expect(dependencyCount({})).toBe(0);
+    });
     it('Format Bytes', () => {
         expect(sizeBytes(0)).toBe('0 Bytes');
         expect(sizeBytes(500)).toBe('500 Bytes');
