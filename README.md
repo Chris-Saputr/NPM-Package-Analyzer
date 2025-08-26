@@ -13,15 +13,23 @@ Package scorecards that includes
 - Date of Last Published
 
 ## How to run (With Docker Installed)
-1. Open Powershell/Command Prompt/Git Bash and Clone the repository by entering `git clone https://github.com/Chris-Saputr/NPM-Package-Analyzer.git`
+1. Open Ubuntu/Git Bash and Clone the repository by entering 
 
-2. Go into the directory where NPM-Package-Analyzer is located by entering `cd NPM-Package-Analyzer on the terminal`
+`git clone https://github.com/Chris-Saputr/NPM-Package-Analyzer.git`
 
-3. Build and start the container by entering `docker compose up --build`
+2. Go into the directory where NPM-Package-Analyzer is located by entering 
 
-4. Open up a web browser of your choice, and enter `http://localhost:8080/` 
+`cd NPM-Package-Analyzer`
+
+3. Build and start the container by entering 
+
+`docker-compose up --build`
+
+4. Open up a web browser of your choice, and enter 
+
+`http://localhost:8080/` 
 
 ## Key Design Choices
 This application utilizes React + Vite for simplicity, fast builds, and reliability. Vite is a JS bundler, which could be run on most browser by transforming the React JSX code into raw HTML, CSS, and JavaScript files. 
 
-This app also utilizes NGINX for speed, efficiency, and flexibility. While NGINX doest support directory level configurations, it helps increases the site performances. Especially since we only have singular web page.
+This app also utilizes NGINX for speed, efficiency, and flexibility. While NGINX doest support directory level configurations, it helps increase the site performances. Especially since we only have singular web app.
