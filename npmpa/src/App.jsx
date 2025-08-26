@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 
+// Helper function to format bytes into known file size
 function formatBytes(bytes) {
   if (bytes === 0) return '0 Bytes';
   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
@@ -13,12 +14,13 @@ function formatBytes(bytes) {
   return `${val.toFixed(1)} ${sizes[i]}`;
 } 
 
+
 export default function App() {
   const [pkg, setPkg] = useState("");
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
-
+  
   async function npmSearch() {
     const name = pkg.trim();
     if (!name) return;
@@ -26,7 +28,7 @@ export default function App() {
     setLoading(true);
     setError("");
     setData(null);
-
+    
     try {
       const res = await fetch(`https://registry.npmjs.org/${name}`);
       if (!res.ok) throw new Error("Package not found");
@@ -49,7 +51,7 @@ export default function App() {
         license: latest.license || "Unknown",
         dependencies: latest.dependencies ? Object.keys(latest.dependencies || {}).length : 0,
         unpackedSize: latest.dist?.unpackedSize ? formatBytes(latest.dist.unpackedSize) : "N/A",
-        lastPublish: waiting.time?.modified || null,
+        lastPublish: waiting.time?.[latestVersion] || waiting.time?.modified || null,
         weeklyDownloads: downloads.downloads || 0
       };
 
@@ -66,19 +68,17 @@ export default function App() {
   }  
 
   return (
-    <div className="p-6 max-w-lg mx-auto font-sans">
-      <h1 className="text-2xl font-bold mb-4">NPM Package Dependency Inspector</h1>
-      <div className="flex gap-2 mb-4">
+    <div style={{ fontFamily: "system-ui, sans-serif", padding: 24, maxWidth: 720, margin: "0 auto" }}>
+      <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 12 }}>NPM Package Dependency Inspector</h1>
+       <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
         <input
-          className="border p-2 flex-1"
-          placeholder="Enter package name..."
+          placeholder="Enter package name (e.g., react)"
           value={pkg}
           onChange={(e) => setPkg(e.target.value)}
           onKeyDown={EnterPressed}
-          style={{ flex: 1, padding: "10px 12px", border: "1px solid #ccc", borderRadius: 8, marginRight: 10 }}
+          style={{ flex: 1, padding: "10px 12px", border: "1px solid #ccc", borderRadius: 8 }}
         />
         <button
-          className="bg-blue-500 text-white px-4 py-2 rounded"
           onClick={npmSearch}
           disabled={loading}
         >
@@ -86,17 +86,20 @@ export default function App() {
         </button>
       </div>
 
-      {error && <p className="text-red-500">{error}</p>}
+      {error && <div style={{ color: "#dc2626", marginBottom: 12 }}>{error}</div>}
+
 
       {data && (
-        <div className="border rounded p-4 bg-gray-100">
-          <h2 className="text-xl font-bold">{data.name}</h2>
+        <div style={{ border: "1px solid #e5e7eb", borderRadius: 12, padding: 16, background: "#242121ff" }}>
+          <div style={{ fontSize: 20, fontWeight: 700, marginBottom: 8 }}>{data.name}</div>
+           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
           <p><strong>Version:</strong> {data.version}</p>
           <p><strong>License:</strong> {data.license}</p>
           <p><strong>Weekly Downloads:</strong> {data.weeklyDownloads.toLocaleString()}</p>
           <p><strong>Dependencies:</strong> {data.dependencies}</p>
           <p><strong>Unpacked Size:</strong> {data.unpackedSize}</p>
           <p><strong>Last Publish:</strong> {new Date(data.lastPublish).toLocaleString()}</p>
+        </div>
         </div>
       )}
     </div>
