@@ -1,19 +1,8 @@
 import { useState } from 'react'
+import './util.js'
 import './App.css'
-
-// Helper function to format bytes into known file size
-function formatBytes(bytes) {
-  if (bytes === 0) return '0 Bytes';
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-  let i = 0;
-  let val = bytes
-
-  while (val >= 1024 && i < sizes.length - 1) {
-    val /= 1024;
-    i++;}
-  return `${val.toFixed(1)} ${sizes[i]}`;
-} 
-
+import { sizeBytes } from './util.js';
+ 
 
 export default function App() {
   const [pkg, setPkg] = useState("");
@@ -50,7 +39,7 @@ export default function App() {
         version: latestVersion,
         license: latest.license || "Unknown",
         dependencies: latest.dependencies ? Object.keys(latest.dependencies || {}).length : 0,
-        unpackedSize: latest.dist?.unpackedSize ? formatBytes(latest.dist.unpackedSize) : "N/A",
+        unpackedSize: latest.dist?.unpackedSize ? sizeBytes(latest.dist.unpackedSize) : "N/A",
         lastPublish: waiting.time?.[latestVersion] || waiting.time?.modified || null,
         weeklyDownloads: downloads.downloads || 0
       };

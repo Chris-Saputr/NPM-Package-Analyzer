@@ -1,6 +1,4 @@
-export function dependencyCount(deps){
-    return Object.keys(deps || {}).length;
-}
+// Helper function to format bytes into known file size
 export function sizeBytes(bytes){
     if(!bytes && bytes !== 0) return '0 Bytes';
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
